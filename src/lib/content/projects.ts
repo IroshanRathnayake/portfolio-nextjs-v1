@@ -1,0 +1,71 @@
+import { ProjectsSectionType } from '@/lib/types/sections';
+import { getId } from '@/lib/utils/helper';
+
+export const projectsSection: ProjectsSectionType = {
+  title: 'my projects',
+  projects: [
+    {
+      id: getId(),
+      name: 'Weather Forecast',
+      url: 'https://iroshanrathnayake.github.io/Weather-WebApp/',
+      repo: 'https://github.com/IroshanRathnayake/Weather-WebApp.git',
+      img: '/assets/weather-app.png',
+      year: 2024,
+      tags: ['HTML', 'JS', 'API'],
+    },
+    {
+      id: getId(),
+      name: 'MOS Burgers',
+      url: 'https://iroshanrathnayake.github.io/MOS-Burgers-WebApp/',
+      repo: 'https://github.com/IroshanRathnayake/MOS-Burgers-WebApp.git',
+      img: '/assets/mos-burgers.png',
+      year: 2024,
+      tags: ['HTML', 'Bootstrap', 'JS'],
+    },
+    {
+      id: getId(),
+      name: 'Flutter Todo App',
+      url: '',
+      repo: 'https://github.com/IroshanRathnayake/Flutter-ToDo-App.git',
+      img: '/assets/flutter-todo.png',
+      year: 2024,
+      tags: ['Flutter', 'Dart', 'Provider'],
+    },
+    {
+      id: getId(),
+      name: 'Gocode Web',
+      url: 'https://iroshanrathnayake.github.io/Gocode/',
+      repo: 'https://github.com/IroshanRathnayake/Gocode.git',
+      img: '/assets/gocode.png',
+      year: 2024,
+      tags: ['HTML', 'CSS', 'JS'],
+    },
+    {
+      id: getId(),
+      name: 'Scalp Hunt Bot',
+      url: '',
+      repo: 'https://github.com/IroshanRathnayake/Scalp-Hunt.git',
+      img: '/assets/scalp-hunt.png',
+      year: 2023,
+      tags: ['Pinescript', 'Trading', 'Bot'],
+    },
+    {
+      id: getId(),
+      name: 'Prescription Management',
+      url: '',
+      repo: 'https://github.com/iCET-110/Hospital-Management-Frontend.git',
+      img: '/assets/prescription-management.png',
+      year: 2024,
+      tags: ['Angular', 'Spring Boot', 'MySQL'],
+    },
+    {
+      id: getId(),
+      name: 'Find Location',
+      url: 'https://iroshanrathnayake.github.io/Find-Location-REST-API/',
+      repo: 'https://github.com/IroshanRathnayake/Find-Location-REST-API.git',
+      img: '/assets/find-location.png',
+      year: 2023,
+      tags: ['HTML', 'CSS', 'JS', 'API'],
+    },
+  ],
+};
