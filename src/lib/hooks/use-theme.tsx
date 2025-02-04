@@ -36,14 +36,9 @@ export default function ThemeProvider({
   useEffect(() => {
     if (isMounted) {
       localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
-      if (typeof window !== 'undefined') {
-        const root = window.document.querySelector('html');
-        if (isDarkMode) {
-          root?.classList.add('dark');
-        } else {
-          root?.classList.remove('dark');
-        }
-      }
+      if (typeof document === 'undefined') return;
+      const root = document.querySelector('html');
+      root?.classList.toggle('dark', isDarkMode);
     }
   }, [isDarkMode, isMounted]);
 
