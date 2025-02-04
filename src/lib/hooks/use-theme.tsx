@@ -34,11 +34,12 @@ export default function ThemeProvider({
   }, []);
 
   useEffect(() => {
-    if (isMounted) {
+    if (isMounted && typeof window !== 'undefined') {
       localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
-      if (typeof document === 'undefined') return;
       const root = document.querySelector('html');
-      root?.classList.toggle('dark', isDarkMode);
+      if (root) {
+        root.classList.toggle('dark', isDarkMode);
+      }
     }
   }, [isDarkMode, isMounted]);
 
