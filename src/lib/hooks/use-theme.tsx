@@ -27,19 +27,14 @@ export default function ThemeProvider({
 
   useEffect(() => {
     setIsMounted(true);
-    if (typeof window !== 'undefined') {
-      const storedDarkMode = localStorage.getItem('darkMode');
-      setIsDarkMode(storedDarkMode ? JSON.parse(storedDarkMode) : true);
-    }
+    const storedDarkMode = localStorage.getItem('darkMode');
+    setIsDarkMode(storedDarkMode ? JSON.parse(storedDarkMode) : true);
   }, []);
 
   useEffect(() => {
-    if (isMounted && typeof window !== 'undefined') {
+    if (isMounted) {
       localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
-      const root = document.querySelector('html');
-      if (root) {
-        root.classList.toggle('dark', isDarkMode);
-      }
+      document.documentElement.classList.toggle('dark', isDarkMode);
     }
   }, [isDarkMode, isMounted]);
 

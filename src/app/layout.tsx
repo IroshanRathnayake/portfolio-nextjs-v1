@@ -1,11 +1,10 @@
 import { seoData } from '@/lib/content/portfolio';
 import ThemeProvider from '@/lib/hooks/use-theme';
 import fontVariables from '@/lib/utils/fonts';
-
 import Cursor from '@/components/ui/Cursor';
-
 import '../styles/globals.css';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: seoData.title,
@@ -75,12 +74,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        <script src="/scripts/no-flash.js" async />
-      </head>
       <body className={`text-text bg-bg ${fontVariables}`}>
-        <Cursor className="hidden dark:lg:block" />
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <Cursor className="hidden dark:lg:block" />
+          {children}
+        </ThemeProvider>
+        <Script src="/scripts/no-flash.js" strategy="afterInteractive" />
       </body>
     </html>
   );
