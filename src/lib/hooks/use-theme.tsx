@@ -17,7 +17,11 @@ const initialState = {
 
 const ThemeContext = createContext(initialState);
 
-export default function ThemeProvider({ children }: { children: React.ReactNode }) {
+export default function ThemeProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   const [isMounted, setIsMounted] = useState(false);
 
@@ -32,7 +36,14 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
   useEffect(() => {
     if (isMounted) {
       localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
-      document.documentElement.classList.toggle('dark', isDarkMode);
+      if (typeof window !== 'undefined') {
+        const root = window.document.querySelector('html');
+        if (isDarkMode) {
+          root?.classList.add('dark');
+        } else {
+          root?.classList.remove('dark');
+        }
+      }
     }
   }, [isDarkMode, isMounted]);
 
@@ -41,7 +52,9 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
   const disableDarkMode = useCallback(() => setIsDarkMode(false), []);
 
   return (
-    <ThemeContext.Provider value={{ isDarkMode, toggle, enableDarkMode, disableDarkMode }}>
+    <ThemeContext.Provider
+      value={{ isDarkMode, toggle, enableDarkMode, disableDarkMode }}
+    >
       {children}
     </ThemeContext.Provider>
   );
