@@ -21,6 +21,9 @@ const Navbar = () => {
   const navbarRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
+    // Ensure the code runs only on the client side
+    if (typeof window === 'undefined') return;
+
     const nav = navbarRef.current;
     if (!nav) return;
 
