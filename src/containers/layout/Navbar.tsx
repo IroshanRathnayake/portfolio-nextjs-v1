@@ -1,15 +1,16 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-
 import { navbarSection } from '@/lib/content/navbar';
-import { getBreakpointsWidth } from '@/lib/utils/helper';
 import useWindowWidth from '@/lib/hooks/use-window-width';
+import { getBreakpointsWidth } from '@/lib/utils/helper';
 
 import { Button, DarkModeButton, Link as CLink, NavButton } from '@/components';
+
 import { fadeIn, slideIn } from '@/styles/animations';
+
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 
 const Navbar = () => {
   const { cta, navLinks } = navbarSection;
